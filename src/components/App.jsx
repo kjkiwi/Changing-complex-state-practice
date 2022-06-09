@@ -7,6 +7,11 @@ function App() {
     email: ""
   });
 
+  function inputEntered(event) {
+    console.log(event.target.name);
+    console.log(event.target.value);
+  }
+
   return (
     <div className="container">
       <h1>
@@ -14,9 +19,24 @@ function App() {
       </h1>
       <p>{contact.email}</p>
       <form>
-        <input name="fName" placeholder="First Name" />
-        <input name="lName" placeholder="Last Name" />
-        <input name="email" placeholder="Email" />
+        <input
+          onChange={inputEntered}
+          name="fName"
+          placeholder="First Name"
+          value={contact.fName}
+        />
+        <input
+          onChange={inputEntered}
+          name="lName"
+          placeholder="Last Name"
+          value={contact.lName}
+        />
+        <input
+          onChange={inputEntered}
+          name="email"
+          placeholder="Email"
+          value={contact.email}
+        />
         <button>Submit</button>
       </form>
     </div>
