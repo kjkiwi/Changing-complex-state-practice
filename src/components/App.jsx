@@ -8,29 +8,31 @@ function App() {
   });
 
   function inputEntered(event) {
-    const inputField = event.target.name;
-    console.log(inputField);
-    const inputValue = event.target.value;
-    console.log(inputValue);
+    // const inputField = event.target.name;
+    // const inputValue = event.target.value;
+
+    // Refactored into:
+
+    const { name, value } = event.target;
 
     setContact((prevValue) => {
-      if (inputField === "fName") {
+      if (name === "fName") {
         return {
-          fName: inputValue,
+          fName: value,
           lName: prevValue.lName,
           email: prevValue.email
         };
-      } else if (inputField === "lName") {
+      } else if (name === "lName") {
         return {
           fName: prevValue.fName,
-          lName: inputValue,
+          lName: value,
           email: prevValue.email
         };
-      } else if (inputField === "email") {
+      } else if (name === "email") {
         return {
           fName: prevValue.fName,
           lName: prevValue.lName,
-          email: inputValue
+          email: value
         };
       }
     });
